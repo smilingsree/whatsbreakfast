@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Change Breakfast" />
+        android:text="Shake to Change Breakfast" />
 
     <TextView
         android:id="@+id/textView1"
