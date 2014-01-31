@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.squareup.seismic.ShakeDetector;
 
-public class MainActivity extends Activity implements ShakeDetector.Listener {
+public class MainActivity2 extends Activity implements ShakeDetector.Listener {
 	
 	String[] breakfastList = {
 		"Idli", "Dosa", "Poori", "Upma", "Chapathi", "Bisibelabath", "Pulav", "Pongal",
