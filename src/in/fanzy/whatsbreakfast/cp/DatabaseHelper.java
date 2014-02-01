@@ -48,7 +48,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-
+		db.execSQL(FoodItemCP.DATABASE_CREATE);
+		db.execSQL(FoodItemTagsCP.DATABASE_CREATE);
 	}
 
 	/*

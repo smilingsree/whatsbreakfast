@@ -22,11 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-    	<provider
-				android:name="in.fanzy.whatsbreakfast.cp.FoodItemCP"
-				android:authorities="in.fanzy.whatsbreakfast.cp.FoodItemCP"
-				android:exported="false" />
+
+        <provider
+            android:name="in.fanzy.whatsbreakfast.cp.FoodItemCP"
+            android:authorities="in.fanzy.whatsbreakfast.cp.FoodItemCP"
+            android:exported="false" />
+        <provider
+            android:name="in.fanzy.whatsbreakfast.cp.FoodItemTagsCP"
+            android:authorities="in.fanzy.whatsbreakfast.cp.FoodItemTagsCP"
+            android:exported="false" />
     </application>
 
 </manifest>
