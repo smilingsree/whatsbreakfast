@@ -3,8 +3,6 @@ package in.fanzy.whatsbreakfast.activities;
 import in.fanzy.androidmvc.constants.Constants;
 import in.fanzy.androidmvc.router.Route;
 import in.fanzy.androidmvc.view.UIBuilder;
-import in.fanzy.foodmastilibrary.net.AppRequestDataFetcher;
-import in.fanzy.whatsbreakfast.MainApplication;
 import in.fanzy.whatsbreakfast.routes.AppRouter;
 
 import org.json.JSONException;
@@ -16,8 +14,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends BaseFragmentActivity {
 
-	private Route mRoute;
-	private UIBuilder mUIBuilder;
+	protected Route mRoute;
+	protected UIBuilder mUIBuilder;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +33,7 @@ public class MainActivity extends BaseFragmentActivity {
 
 	private void fetchRequiredData(boolean b) {
 		try {
-			mRoute.fetchData(b, AppRequestDataFetcher.getInstance(
-					MainApplication.getRequestQueue(), this));
+			mRoute.fetchData(b, null);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

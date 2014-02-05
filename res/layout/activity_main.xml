@@ -5,17 +5,16 @@
     >
     
 <RelativeLayout
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity2" >
+     >
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/heading_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -28,41 +27,62 @@
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="25dp"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/show_breakfast"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/button2"
             android:layout_weight="1"
-            android:text="View Food Items" />
+            android:text="Breakfast" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/show_lunch"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add new Food Item" />
+            android:text="Lunch" />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/show_dinner"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dinner" />
+
+        <Button
+            android:id="@+id/show_snacks"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Snacks" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/food_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/heading_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="@string/hello_world"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/change_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/food_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="Shake to Change Breakfast" />

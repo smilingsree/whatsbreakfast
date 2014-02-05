@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:myapp="http://schemas.android.com/apk/res-auto" >
+    <item android:id="@+id/action_list"
+          android:icon="@drawable/collections_view_as_list"
+          android:title="List Items"
+          myapp:showAsAction="ifRoom|withText"
+            />
+    <item android:id="@+id/action_new"
+          android:icon="@drawable/content_new"
+          android:title="Add Item"
+          myapp:showAsAction="ifRoom|withText"
+            />
+
+</menu>
