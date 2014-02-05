@@ -17,12 +17,14 @@ public class AppRouter extends Router {
 	static AppRouter sInstance;
 
 	public static final String ROUTE_MAIN = "main";
-	public static final String ROUTE_QUIZ = "quiz";
-	public static final String ROUTE_LOGIN = "login";
+	public static final String ROUTE_NEW_FOOD_ITEM = "new_food_item";
+	public static final String ROUTE_FOOD_ITEMS = "food_items";
 	public static final String ROUTE_QUIZ_STATISTICS = "quiz.statistics";
 
 	static {
 		mRouteClassMap.put(ROUTE_MAIN, MainRoute.class);
+		mRouteClassMap.put(ROUTE_NEW_FOOD_ITEM, NewFoodItemRoute.class);
+		mRouteClassMap.put(ROUTE_FOOD_ITEMS, FoodItemsRoute.class);
 	}
 
 	/*

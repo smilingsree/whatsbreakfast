@@ -21,11 +21,8 @@ import android.net.Uri;
 public class FoodItem extends FanzyData {
 
 	public String name;
-	public int preparationTime;
-	public int calories;
 	public int foodType;
-	public int spiceLevel;
-
+	public int foodCategory;
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -45,12 +42,17 @@ public class FoodItem extends FanzyData {
 	@Override
 	public ContentValues getContentValues() {
 		ContentValues values = new ContentValues();
-		values.put(FoodItemCP.KEY_ID, id);
+		if (id != 0) {
+			values.put(FoodItemCP.KEY_ID, id);
+		}
 		values.put(FoodItemCP.KEY_NAME, name);
-		values.put(FoodItemCP.KEY_PREP_TIME, preparationTime);
-		values.put(FoodItemCP.KEY_CALORIES, calories);
-		values.put(FoodItemCP.KEY_SPICE_LEVEL, spiceLevel);
-		values.put(FoodItemCP.KEY_UPDATED, updated);
+		values.put(FoodItemCP.KEY_FOOD_TYPE, foodType);
+		values.put(FoodItemCP.KEY_FOOD_CATEGORY, foodCategory);
+    //  values.put(FoodItemCP.KEY_PREP_TIME, preparationTime);
+	//	values.put(FoodItemCP.KEY_CALORIES, calories);
+	//  values.put(FoodItemCP.KEY_SPICE_LEVEL, spiceLevel);
+		if (updated > 0)
+			values.put(FoodItemCP.KEY_UPDATED, updated);
 		return values;
 	}
 
@@ -59,9 +61,10 @@ public class FoodItem extends FanzyData {
 		// TODO Auto-generated method stub
 		id = cursor.getLong(cursor.getColumnIndex(FoodItemCP.KEY_ID));
 		foodType = cursor.getInt(cursor.getColumnIndex(FoodItemCP.KEY_FOOD_TYPE));
-		calories = cursor.getInt(cursor.getColumnIndex(FoodItemCP.KEY_CALORIES));
-		spiceLevel = cursor.getInt(cursor
-				.getColumnIndex(FoodItemCP.KEY_SPICE_LEVEL));
+		foodCategory = cursor.getInt(cursor.getColumnIndex(FoodItemCP.KEY_FOOD_CATEGORY));
+		//calories = cursor.getInt(cursor.getColumnIndex(FoodItemCP.KEY_CALORIES));
+		//spiceLevel = cursor.getInt(cursor
+			//	.getColumnIndex(FoodItemCP.KEY_SPICE_LEVEL));
 		name = cursor.getString(cursor.getColumnIndex(FoodItemCP.KEY_NAME));
 	}
 }

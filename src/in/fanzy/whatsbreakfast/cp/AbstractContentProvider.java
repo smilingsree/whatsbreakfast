@@ -25,7 +25,7 @@ public abstract class AbstractContentProvider extends ContentProvider {
 	protected static final UriMatcher sUriMatcher;
 
 	// DB helper
-	protected DatabaseHelper mDbHelper;
+	protected PrePopulatedDatabaseHelper mDbHelper;
 
 	public static final String STR_CONTENT = "content";
 	public static final String STR_CONTENTS = "contents";
@@ -60,7 +60,7 @@ public abstract class AbstractContentProvider extends ContentProvider {
 	 */
 	@Override
 	public boolean onCreate() {
-		mDbHelper = DatabaseHelper.getInstance(getContext());
+		mDbHelper = PrePopulatedDatabaseHelper.getInstance(getContext());
 		return true;
 	}
 
@@ -74,12 +74,7 @@ public abstract class AbstractContentProvider extends ContentProvider {
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
 		// Open a database
-		SQLiteDatabase db;
-		try {
-			db = mDbHelper.getWritableDatabase();
-		} catch (SQLiteException ex) {
-			db = mDbHelper.getReadableDatabase();
-		}
+		SQLiteDatabase db = mDbHelper.openDataBase();
 
 		Cursor cursor;
 
@@ -129,7 +124,7 @@ public abstract class AbstractContentProvider extends ContentProvider {
 	@Override
 	public Uri insert(Uri uri, ContentValues values) {
 		// Open a read / write database to support the transaction.
-		SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		SQLiteDatabase db = mDbHelper.openDataBase();
 
 		// Validate the requested uri.
 
@@ -161,7 +156,7 @@ public abstract class AbstractContentProvider extends ContentProvider {
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
 
 		// Open a read / write database to support the transaction.
-		SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		SQLiteDatabase db = mDbHelper.openDataBase();
 
 		// Selection according to uri.
 		// QuerySelectionData selectionData = getSelectionForUri(uri, selection,
@@ -202,7 +197,7 @@ public abstract class AbstractContentProvider extends ContentProvider {
 	public int update(Uri uri, ContentValues values, String selection,
 			String[] selectionArgs) {
 		// Open a read / write database to support the transaction.
-		SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		SQLiteDatabase db = mDbHelper.openDataBase();
 
 		// QuerySelectionData selectionData = getSelectionForUri(uri, selection,
 		// selectionArgs);

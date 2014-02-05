@@ -22,21 +22,15 @@ public class FoodItemCP extends AbstractContentProvider {
 	public static final String TABLE_NAME = "food_items";
 
 	public static final String KEY_NAME = "name";
-	public static final String KEY_PREP_TIME = "prep_time";
-	public static final String KEY_CALORIES = "calories";
 	public static final String KEY_FOOD_TYPE = "food_type";
-	public static final String KEY_SPICE_LEVEL = "spice_level";
-	public static final String KEY_USER_ID = "user_id";
-
+	public static final String KEY_FOOD_CATEGORY = "food_category";
 	/*
 	 * SQL FOR CREATION.
 	 */
 	public static final String DATABASE_CREATE = "CREATE TABLE " + TABLE_NAME
 			+ " ( " + KEY_ID + " INTEGER PRIMARY KEY, " + KEY_NAME
-			+ " TEXT NOT NULL, " + KEY_PREP_TIME + " INTEGER NOT NULL, "
-			+ KEY_CALORIES + " INTEGER DEFAULT 0, " + KEY_FOOD_TYPE
-			+ " INTEGER NOT NULL, " + KEY_SPICE_LEVEL + " INTEGER DEFAULT 0, "
-			+ KEY_USER_ID + " INTEGER NOT NULL, " + KEY_UPDATED
+			+ " TEXT NOT NULL, " + KEY_FOOD_TYPE
+			+ " INTEGER NOT NULL, " + KEY_FOOD_CATEGORY + " INTEGER DEFAULT 2, " + KEY_UPDATED
 			+ " INTEGER NOT NULL )";
 
 	/*

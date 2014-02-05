@@ -52,7 +52,7 @@ public class CPWrapper {
 				null, null);
 	}
 
-	private static void insert(FanzyData data, Context context) {
+	public static void insert(FanzyData data, Context context) {
 		context.getContentResolver().insert(data.getUri(), data.getContentValues());
 	}
 }

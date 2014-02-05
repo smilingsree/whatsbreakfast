@@ -11,6 +11,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
+        android:name="in.fanzy.whatsbreakfast.MainApplication"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -22,14 +23,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity android:name="in.fanzy.whatsbreakfast.activities.ShowPageActivity" 
+            />
 
         <provider
             android:name="in.fanzy.whatsbreakfast.cp.FoodItemCP"
             android:authorities="in.fanzy.whatsbreakfast.cp.FoodItemCP"
-            android:exported="false" />
-        <provider
-            android:name="in.fanzy.whatsbreakfast.cp.FoodItemTagsCP"
-            android:authorities="in.fanzy.whatsbreakfast.cp.FoodItemTagsCP"
             android:exported="false" />
     </application>
 

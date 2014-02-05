@@ -5,6 +5,7 @@ package in.fanzy.whatsbreakfast.routes;
 
 import in.fanzy.androidmvc.data.RequestParams;
 import in.fanzy.androidmvc.view.UIBuilder;
+import in.fanzy.whatsbreakfast.ui.MainUIBuilder;
 import android.app.Activity;
 
 /**
@@ -18,8 +19,7 @@ public class MainRoute extends FanzyRoute {
 	 */
 	@Override
 	protected UIBuilder createUIBuilder(Activity activity) {
-		// TODO Auto-generated method stub
-		return null;
+		return new MainUIBuilder(activity);
 	}
 
 	/* (non-Javadoc)
