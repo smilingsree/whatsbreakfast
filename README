@@ -1,3 +1,8 @@
 A simple app to decide what to cook for Breakfast.
 It will show a Breakfast randomly. If you want to change it, simply Shake the phone!! 
 Hope to make it the be all and end all cooking app for Indians!!
+
+This app uses Android-MVC library to separate out the Data & the UI part: https://github.com/gauthamns/android-mvc
+Be sure to download and include the library while testing this app.
+
+App also uses prepopulated database to show a few common items.
