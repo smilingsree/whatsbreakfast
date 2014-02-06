@@ -13,6 +13,9 @@ import java.util.List;
 
 import android.app.Activity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -23,6 +26,7 @@ import android.widget.ListView;
 public class FoodItemsUiBuilder extends AbstractUIBuilder {
 
 	private ListView mListView;
+	private FoodItemListAdapter mAdapter;
 
 
 	public FoodItemsUiBuilder(Activity activity) {
@@ -39,6 +43,16 @@ public class FoodItemsUiBuilder extends AbstractUIBuilder {
 		mActivity.setContentView(R.layout.food_items);
 		setTitle();
 		mListView = (ListView) mActivity.findViewById(android.R.id.list);
+		mAdapter = new FoodItemListAdapter(mActivity);
+		mListView.setAdapter(mAdapter);
+		mListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> listView, View v, int position,
+					long id) {
+				mAdapter.getItem(position);
+			}
+		});
 		// mAdapter = new FoodItemListAdapter(mActivity);
 	}
 	
@@ -48,16 +62,9 @@ public class FoodItemsUiBuilder extends AbstractUIBuilder {
 	public <T extends AbstractData> void onListDataObtained(List<T> dataList) {
 		String[] resultArray = new String[dataList.size()];
 		
-		int i = 0;
-		for (T data : dataList) {
-			FoodItem item = (FoodItem) data;
-			resultArray[i] = item.name;
-			i++;
-			Log.d("Items", item.name);
-		}
+		mAdapter.setListData((List<FoodItem>) dataList);
 		
-		ArrayAdapter adapter = new ArrayAdapter<String>(mActivity, android.R.layout.simple_list_item_1, resultArray);
-		mListView.setAdapter(adapter);
+		
 	}
 	
 	
